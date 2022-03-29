@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Button, StyleSheet, TextInput, View } from 'react-native';
+import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
 import { donateIntent } from 'react-native-donate-send-message-intent';
 
 export default function App() {
@@ -11,17 +11,39 @@ export default function App() {
 
   return (
     <View style={styles.container}>
+      <Text>conversationIdentifier</Text>
       <TextInput
         onChange={(e) => setConversationIdentifier(e.nativeEvent.text)}
-      >
-        conversationIdentifier: {conversationIdentifier}
-      </TextInput>
-      <TextInput onChange={(e) => setSpeakableGroupName(e.nativeEvent.text)}>
-        speakableGroupName: {speakableGroupName}
-      </TextInput>
-      <TextInput onChange={(e) => setBase64Image(e.nativeEvent.text)}>
-        base64Image: {base64Image}
-      </TextInput>
+        value={conversationIdentifier}
+        style={{
+          width: 100,
+          borderWidth: 1,
+          borderColor: 'black',
+          borderRadius: 5,
+        }}
+      />
+      <Text>speakableGroupName</Text>
+      <TextInput
+        onChange={(e) => setSpeakableGroupName(e.nativeEvent.text)}
+        value={speakableGroupName}
+        style={{
+          width: 100,
+          borderWidth: 1,
+          borderColor: 'black',
+          borderRadius: 5,
+        }}
+      />
+      <Text>base64Image</Text>
+      <TextInput
+        onChange={(e) => setBase64Image(e.nativeEvent.text)}
+        value={base64Image}
+        style={{
+          width: 100,
+          borderWidth: 1,
+          borderColor: 'black',
+          borderRadius: 5,
+        }}
+      />
       <Button
         title="Donate"
         onPress={() => {
