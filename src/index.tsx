@@ -17,6 +17,14 @@ const DonateSendMessageIntent = NativeModules.DonateSendMessageIntent
       }
     );
 
-export function multiply(a: number, b: number): Promise<number> {
-  return DonateSendMessageIntent.multiply(a, b);
+export function donateIntent(
+  conversationIdentifier: string,
+  speakableGroupName: string,
+  base64Image: string
+): Promise<number> {
+  return DonateSendMessageIntent.donateIntent(
+    conversationIdentifier,
+    speakableGroupName,
+    base64Image
+  );
 }

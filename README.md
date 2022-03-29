@@ -11,11 +11,11 @@ npm install react-native-donate-send-message-intent
 ## Usage
 
 ```js
-import { multiply } from "react-native-donate-send-message-intent";
+import { donateIntent } from 'react-native-donate-send-message-intent';
 
 // ...
 
-const result = await multiply(3, 7);
+const result = await donateIntent('123', 'Patti Smith', '');
 ```
 
 ## Contributing

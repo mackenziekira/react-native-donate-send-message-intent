@@ -1,18 +1,33 @@
 import * as React from 'react';
-
-import { StyleSheet, View, Text } from 'react-native';
-import { multiply } from 'react-native-donate-send-message-intent';
+import { Button, StyleSheet, TextInput, View } from 'react-native';
+import { donateIntent } from 'react-native-donate-send-message-intent';
 
 export default function App() {
-  const [result, setResult] = React.useState<number | undefined>();
-
-  React.useEffect(() => {
-    multiply(3, 7).then(setResult);
-  }, []);
+  const [conversationIdentifier, setConversationIdentifier] =
+    React.useState<string>('');
+  const [speakableGroupName, setSpeakableGroupName] =
+    React.useState<string>('');
+  const [base64Image, setBase64Image] = React.useState<string>('');
 
   return (
     <View style={styles.container}>
-      <Text>Result: {result}</Text>
+      <TextInput
+        onChange={(e) => setConversationIdentifier(e.nativeEvent.text)}
+      >
+        conversationIdentifier: {conversationIdentifier}
+      </TextInput>
+      <TextInput onChange={(e) => setSpeakableGroupName(e.nativeEvent.text)}>
+        speakableGroupName: {speakableGroupName}
+      </TextInput>
+      <TextInput onChange={(e) => setBase64Image(e.nativeEvent.text)}>
+        base64Image: {base64Image}
+      </TextInput>
+      <Button
+        title="Donate"
+        onPress={() => {
+          donateIntent(conversationIdentifier, speakableGroupName, base64Image);
+        }}
+      />
     </View>
   );
 }
