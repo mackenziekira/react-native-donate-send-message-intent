@@ -8,6 +8,21 @@ Donate a send message intent to have your app appear in the iOS share sheet sugg
 npm install react-native-donate-send-message-intent
 ```
 
+## Setup
+
+Follow the [instructions](https://developer.apple.com/documentation/foundation/app_extension_support/supporting_suggestions_in_your_app_s_share_extension) to enable your app & share extension to support send message intents.
+
+Note: the instructions are missing one step, you must add the following to your app's `Info.plist`:
+
+```
+...
+<key>NSUserActivityTypes</key>
+<array>
+  <string>INSendMessageIntent</string>
+</array>
+...
+```
+
 ## Usage
 
 ```js
