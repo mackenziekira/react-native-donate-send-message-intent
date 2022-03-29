@@ -48,6 +48,9 @@ export default function App() {
         title="Donate"
         onPress={() => {
           donateIntent(conversationIdentifier, speakableGroupName, base64Image);
+          setConversationIdentifier('');
+          setSpeakableGroupName('');
+          setBase64Image('');
         }}
       />
     </View>

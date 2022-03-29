@@ -10,7 +10,8 @@ class DonateSendMessageIntent: NSObject {
     return true
   }
 
-  @objc(donateIntent:speakableGroupName:base64Image:)
+    @available(iOS 12.0, *)
+    @objc(donateIntent:speakableGroupName:base64Image:)
   func donateIntent(_ conversationIdentifier: String, speakableGroupName: String, base64Image: String) -> Void {
    let groupName = INSpeakableString(spokenPhrase: speakableGroupName)
    let sendMessageIntent = INSendMessageIntent(recipients: nil,

@@ -21,7 +21,7 @@ export function donateIntent(
   conversationIdentifier: string,
   speakableGroupName: string,
   base64Image: string
-): Promise<number> {
+) {
   return DonateSendMessageIntent.donateIntent(
     conversationIdentifier,
     speakableGroupName,
