@@ -1,6 +1,6 @@
 {
   "name": "react-native-donate-send-message-intent",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Donate a send message intent to have your app appear in the iOS share sheet suggestions list",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
