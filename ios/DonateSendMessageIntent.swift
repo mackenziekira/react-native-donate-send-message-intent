@@ -11,8 +11,12 @@ class DonateSendMessageIntent: NSObject {
   }
 
     @available(iOS 12.0, *)
-    @objc(donateIntent:speakableGroupName:base64Image:)
-  func donateIntent(_ conversationIdentifier: String, speakableGroupName: String, base64Image: String) -> Void {
+    @objc(donateIntent:speakableGroupName:base64Image:resolve:reject:)
+  func donateIntent(_ conversationIdentifier: String,
+                    speakableGroupName: String,
+                    base64Image: String,
+                    resolve: @escaping RCTPromiseResolveBlock,
+                    reject: @escaping RCTPromiseRejectBlock) -> Void {
    let groupName = INSpeakableString(spokenPhrase: speakableGroupName)
    let sendMessageIntent = INSendMessageIntent(recipients: nil,
                                                content: nil,
@@ -30,9 +34,9 @@ class DonateSendMessageIntent: NSObject {
    let interaction = INInteraction(intent: sendMessageIntent, response: nil)
    interaction.donate(completion: { error in
        if error != nil {
-           // Add error handling here.
+           reject("Error", "Error donating send message intent", error)
        } else {
-           // Do something, e.g. send the content to a contact.
+           resolve(nil)
        }
    })
  }

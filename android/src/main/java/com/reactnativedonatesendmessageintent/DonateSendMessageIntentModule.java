@@ -26,7 +26,7 @@ public class DonateSendMessageIntentModule extends ReactContextBaseJavaModule {
     // Example method
     // See https://reactnative.dev/docs/native-modules-android
     @ReactMethod
-    public void donateIntent(String conversationIdentifier, String speakableGroupName, String base64image) {
-        return;
+    public void donateIntent(String conversationIdentifier, String speakableGroupName, String base64image, Promise promise) {
+        promise.resolve(null);
     }
 }
